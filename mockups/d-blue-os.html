@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>yuu's burrow — D: blue os</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Silkscreen:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+ --bg:#a9b5e6;--dot:rgba(255,255,255,.35);--face:#e9edfc;--paper:#f8f9ff;--bar:#8d9ddb;--bar2:#6f80c9;--ink:#1f2760;--soft:#4b5694;
+ --acc:#3d4fb0;--line:#6f80c9;--hi:#fff;--shadow:rgba(31,39,96,.35);--btn:#cfd7f7;--pill:#dfe5fb;
+ --pxl:"Silkscreen",monospace;--cond:"Bebas Neue",sans-serif;--mono:"Space Mono",ui-monospace,monospace}
+:root[data-theme=dark]{
+ --bg:#0e1433;--dot:rgba(141,157,219,.12);--face:#1a2352;--paper:#121a40;--bar:#33438a;--bar2:#26346f;--ink:#dfe5ff;--soft:#9aa8e6;
+ --acc:#9db0ff;--line:#4a5bb0;--hi:#5568c4;--shadow:rgba(0,0,0,.5);--btn:#27337a;--pill:#222d6b}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){
+ --bg:#0e1433;--dot:rgba(141,157,219,.12);--face:#1a2352;--paper:#121a40;--bar:#33438a;--bar2:#26346f;--ink:#dfe5ff;--soft:#9aa8e6;
+ --acc:#9db0ff;--line:#4a5bb0;--hi:#5568c4;--shadow:rgba(0,0,0,.5);--btn:#27337a;--pill:#222d6b}}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(var(--dot) 1.5px,transparent 1.6px) 0 0/16px 16px,var(--bg);color:var(--ink);font-family:var(--mono);font-size:14px;line-height:1.75;transition:background .3s,color .3s}
+.wrap{max-width:1040px;margin:0 auto;padding:16px 14px 60px}
+/* header */
+.top{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.house{width:56px;height:56px;color:var(--bar2);flex:none}
+.logo{font-family:var(--pxl);font-weight:700;font-size:clamp(26px,6vw,50px);letter-spacing:2px;color:var(--paper);text-shadow:-2px 0 var(--bar2),2px 0 var(--bar2),0 -2px var(--bar2),0 2px var(--bar2),4px 4px 0 var(--shadow);margin:0;line-height:1}
+:root[data-theme=dark] .logo{color:var(--acc)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .logo{color:var(--acc)}}
+.search{flex:1 1 100%;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:6px;margin-top:10px;background:var(--bar2);border:2px dashed var(--hi);border-radius:22px;padding:4px 10px;order:3}
+.search a{font-family:var(--pxl);font-size:12px;color:#fff;text-decoration:none;padding:3px 12px;border-radius:999px;letter-spacing:1px}
+.search a:hover{background:rgba(255,255,255,.2)}
+.search .q{margin-left:auto;font-size:12px;color:#d6dcff;display:none}
+.mode{margin-left:auto;width:44px;height:44px;border-radius:50%;border:3px solid var(--hi);background:var(--bar2);color:#fff;font-size:22px;cursor:pointer;box-shadow:3px 3px 0 var(--shadow)}
+.mode:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow)}
+/* window */
+.win{background:var(--face);border:3px solid var(--line);box-shadow:inset 0 0 0 2px var(--hi),6px 6px 0 var(--shadow);margin-bottom:24px}
+.tb{display:flex;align-items:center;gap:6px;background:var(--bar);padding:6px 8px;min-height:40px}
+.tb .t{flex:1;font-family:var(--cond);font-size:22px;letter-spacing:2px;color:#fff;text-transform:uppercase;padding-left:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb .sq{width:26px;height:26px;border:2px solid var(--hi);background:var(--btn);display:grid;place-items:center;font-family:var(--pxl);font-size:12px;color:var(--ink);cursor:pointer;padding:0;line-height:1}
+.tb .sq:hover{background:var(--hi);color:var(--bar2)}
+.pane{margin:10px;background:var(--paper);border:2px solid var(--line);padding:16px 18px;box-shadow:inset 2px 2px 0 var(--shadow)}
+.win.min .pane,.win.min .pills{display:none}
+p{margin:0 0 12px}ul{padding-left:20px;margin:0 0 12px}li{margin-bottom:8px}
+h2{font-family:var(--cond);font-weight:400;font-size:30px;letter-spacing:2px;margin:0 0 6px;color:var(--acc)}
+/* layout */
+.cols{display:grid;grid-template-columns:minmax(0,1fr);gap:0;margin-top:22px;align-items:start}
+.rings{display:none}main{min-width:0}
+.side{padding-right:22px}
+.big{aspect-ratio:16/7;display:grid;place-items:center;text-align:center;font-family:var(--pxl);font-size:12px;color:var(--soft);border:2px dashed var(--line);margin:10px;background:linear-gradient(160deg,var(--pill),var(--paper));padding:10px}
+.big b{display:block;font-family:var(--pxl);font-size:22px;color:var(--acc);margin-bottom:6px}
+.stats{font-family:var(--pxl);font-size:11px;letter-spacing:1px;color:#fff}
+/* tabs */
+.nums{display:flex;gap:10px;margin:0 0 14px;flex-wrap:wrap}
+.nums a{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;font-family:var(--pxl);font-size:14px;color:var(--soft);background:var(--pill);border:2px solid var(--hi);text-decoration:none;box-shadow:2px 2px 0 var(--shadow);position:relative}
+.nums a:hover,.nums a.on{background:var(--bar2);color:#fff}
+.nums a::after{content:attr(data-l);position:absolute;top:100%;margin-top:4px;font-family:var(--cond);letter-spacing:1px;font-size:14px;color:var(--soft);white-space:nowrap}
+.nums{margin-bottom:34px}
+/* pinned */
+.pin{display:grid;grid-template-columns:minmax(0,140px) 1fr;border:2px solid var(--line);background:var(--paper);margin-bottom:24px;box-shadow:4px 4px 0 var(--shadow)}
+.pin .im{background:var(--pill);display:grid;place-items:center;font-family:var(--pxl);font-size:10px;color:var(--soft);text-align:center;padding:6px}
+.pin .tx{padding:8px 14px}
+.pin h3{font-family:var(--cond);font-weight:400;letter-spacing:2px;font-size:26px;margin:0;color:var(--acc)}
+.pin p{margin:0;font-style:italic}
+.pills{display:flex;flex-wrap:wrap;gap:8px;padding:0 12px 12px}
+.pills span{font-family:var(--pxl);font-size:11px;letter-spacing:1px;padding:6px 12px;border:2px solid var(--line);border-radius:999px;background:var(--pill);color:var(--ink);text-transform:uppercase}
+.btn{display:inline-block;font-family:var(--pxl);font-size:13px;letter-spacing:1px;color:#fff;background:var(--bar2);border:2px solid var(--hi);padding:8px 16px;text-decoration:none;box-shadow:3px 3px 0 var(--shadow)}
+.btn:hover{background:var(--acc)}.btn:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--shadow)}
+.dni{color:var(--acc);font-weight:700;text-decoration:underline wavy}
+/* file icons */
+.files{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.files a{display:flex;gap:12px;align-items:center;text-decoration:none;color:var(--ink);border:2px solid var(--line);background:var(--face);padding:10px 12px;box-shadow:3px 3px 0 var(--shadow)}
+.files a:hover{background:var(--pill);transform:translate(-1px,-1px)}
+.files .g{width:44px;height:44px;flex:none;display:grid;place-items:center;font-size:22px;background:var(--bar);border:2px solid var(--hi)}
+.files b{display:block;font-family:var(--cond);font-weight:400;letter-spacing:2px;font-size:24px;color:var(--acc);line-height:1}
+.files span{font-size:11px;color:var(--soft);line-height:1.3;display:block}
+.bubble{display:inline-block;background:#fff;color:#1f2760;border:2px solid #1f2760;border-radius:16px;padding:2px 12px;font-size:12px;margin-top:20px}
+footer{text-align:center;font-family:var(--pxl);font-size:11px;letter-spacing:1px;color:var(--soft);margin-top:30px}
+@media(min-width:860px){
+ .big{aspect-ratio:3/4}
+ .cols{grid-template-columns:270px 28px minmax(0,1fr)}
+ .rings{display:flex;flex-direction:column;justify-content:space-between;align-self:stretch;padding:90px 0 60px}
+ .rings i{display:block;width:60px;height:16px;border:3px solid var(--hi);background:var(--bar2);border-radius:99px;margin-left:-16px;position:relative;z-index:2;box-shadow:2px 2px 0 var(--shadow)}
+ .side{padding-right:0}
+ .search .q{display:block}
+}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+</style></head><body><div class="wrap">
+
+<div class="top">
+ <svg class="house" viewBox="0 0 12 12" shape-rendering="crispEdges" fill="currentColor"><path d="M5 0h2v1h1v1h1v1h1v1h1v1h-1v6H8V8H4v4H2V6H1V5h1V4h1V3h1V2h1z"/><rect x="5" y="8" width="2" height="4" fill="var(--paper)" opacity=".0"/></svg>
+ <h1 class="logo">YUU'S BURROW</h1>
+ <button class="mode" id="mode" aria-label="toggle light/dark">☾</button>
+ <nav class="search"><a href="#about">ABOUT</a><a href="#creations">CREATIONS</a><a href="#boundaries">BOUNDARIES</a><a href="#rabbithole">RABBITHOLE</a><span class="q">🔍 search the burrow…</span></nav>
+</div>
+
+<div class="cols">
+ <aside class="side">
+  <div class="win" style="margin-bottom:0"><div class="tb"><span class="sq">_</span><span class="sq">□</span><span class="sq" style="margin-right:auto">x</span><span class="stats">BUNNY.PNG</span></div>
+   <div class="big"><div><b>YUU</b>[ your bunny sticker goes here ]<br><span style="font-size:10px">img/sticker.png</span></div></div>
+   <div class="pills" style="padding-top:2px"><span>yuu</span><span>yann</span></div></div>
+  <div class="bubble">made with ♡ by yuu</div>
+ </aside>
+ <div class="rings" aria-hidden="true"><i></i><i></i></div>
+ <main>
+  <div class="nums"><a href="#about" data-l="ABOUT">01</a><a href="#creations" data-l="WRITE">02</a><a href="#boundaries" data-l="RULES">03</a><a href="#rabbithole" data-l="HOLE">04</a></div>
+
+  <div class="pin"><div class="im">[ pinned img ]</div><div class="tx"><h3>PINNED POST 📌</h3><p>“Permanently on infinite side quests. I’ll work on a new bot soon… Probably.”</p></div></div>
+
+  <div class="win" id="about"><div class="tb"><span class="t">about the rabbit</span><button class="sq" data-m>_</button><span class="sq">□</span><span class="sq">x</span></div>
+   <div class="pane"><p>Call me Yuu or Yann!</p>
+    <p>I'm 19, a bisexual demiboy, and a professional overthinker who's basically operating on a permanent 24/7 exhaustion debuff from a shitty immune system and a chronic lack of sleep. I’m a perfectionist with ADHD and PDD, which is a fancy way of saying I have the ambition of a god but the consistency of a 2020 Naruto fanfic that gets updated once a year.</p>
+    <p>If I disappear for months, just know I haven't abandoned anything. I’m probably just overthinking a single sentence or rotting in bed from perpetual illness.</p></div>
+   <div class="pills"><span>MLM</span><span>Queer AnyPOV</span><span>WLW</span><span>Fantasy</span><span>Academia</span><span>Fluff</span><span>Angst</span><span>Smut</span><span>Dead Dove</span></div></div>
+
+  <div class="win" id="creations"><div class="tb"><span class="t">what i write</span><button class="sq" data-m>_</button><span class="sq">□</span><span class="sq">x</span></div>
+   <div class="pane"><ul>
+    <li>My bots are a spectrum — I like writing fluffy green flags, but I also like writing degenerate black flags. Expect a whole colour wheel for the scale of my characters.</li>
+    <li>I do take free requests! You can fill in my google form, and pick between two different methods of requesting for those with vague ideas and others with specific concepts in mind!</li></ul>
+    <a class="btn" href="#">REQUEST A BOT ♡</a></div></div>
+
+  <div class="win" id="boundaries"><div class="tb"><span class="t">⚠ do not interact if you're…</span><button class="sq" data-m>_</button><span class="sq">□</span><span class="sq">x</span></div>
+   <div class="pane"><ul>
+    <li>Homophobic, Transphobic, Xenophobic, Islamophobic, Misogynistic, Sexist, Ableist, etc. You're not edgy or cool, you're just a loser.</li>
+    <li>I block freely. I don't need to tell you why, either.</li>
+    <li>Do not ask for POV changes. <span class="dni">Especially</span> if you change my bots from MLM/WLW to MLW.</li></ul></div></div>
+
+  <div class="win" id="rabbithole"><div class="tb"><span class="t">down the rabbithole — C:\burrow\notion\</span><button class="sq" data-m>_</button><span class="sq">□</span><span class="sq">x</span></div>
+   <div class="pane"><div class="files">
+    <a href="#"><span class="g">📁</span><div><b>PROMPTS.</b><span>F.A.Y.E. / FAYEO3</span></div></a>
+    <a href="#"><span class="g">🛠</span><div><b>TOOLS.</b><span>stuff i built, free to use</span></div></a>
+    <a href="#"><span class="g">👾</span><div><b>CHARACTERS.</b><span>OCs and bot cast</span></div></a>
+    <a href="#"><span class="g">📄</span><div><b>TEMPLATES.</b><span>card + lorebook</span></div></a></div></div></div>
+ </main>
+</div>
+<footer>(\_/) THANKS FOR VISITING ♡</footer>
+</div>
+<script>
+var r=document.documentElement,b=document.getElementById('mode'),saved=null;
+try{saved=localStorage.getItem('theme')}catch(e){}
+function dark(){return r.dataset.theme?r.dataset.theme==='dark':matchMedia('(prefers-color-scheme: dark)').matches}
+function sync(){b.textContent=dark()?'☀':'☾'}
+if(saved)r.dataset.theme=saved;sync();
+b.onclick=function(){var t=dark()?'light':'dark';r.dataset.theme=t;try{localStorage.setItem('theme',t)}catch(e){}sync()};
+document.querySelectorAll('[data-m]').forEach(function(x){x.onclick=function(){x.closest('.win').classList.toggle('min')}});
+</script></body></html>
