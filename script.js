@@ -89,3 +89,41 @@ btns.forEach(function(b){b.onclick=function(){
 }});
 paint();
 })();
+
+(function(){
+var root=document.getElementById('blog');if(!root)return;
+var $=function(i){return document.getElementById(i)};
+var STAR_SVG='<svg class="px" viewBox="0 0 9 8" shape-rendering="crispEdges" fill="currentColor"><path d="M4 0h1v1h-1zM4 1h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1z"/></svg>',P=[],view='list',folder='all',ST={},RD={};
+function lg(k){try{var v=JSON.parse(localStorage.getItem(k)||'{}');return v&&typeof v==='object'?v:{}}catch(e){return{}}}
+function sv(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+ST=lg('bl_star');RD=lg('bl_read');
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function ago(d){var n=Math.floor((Date.now()-new Date(d+'T00:00:00'))/864e5);if(!(n>=0))return'';if(n<1)return'today';if(n<30)return n+' day'+(n==1?'':'s')+' ago';var m=Math.floor(n/30);return m+' month'+(m==1?'':'s')+' ago'}
+function unread(p){return!RD[p.id]}
+function inFolder(p){return folder==='all'||(folder==='star'?!!ST[p.id]:(p.tags||[]).indexOf(folder)>-1)}
+function side(){var tags=[];P.forEach(function(p){(p.tags||[]).forEach(function(t){if(tags.indexOf(t)<0)tags.push(t)})});
+ function f(k,l,n){return'<button type="button" class="bl-f'+(folder===k?' on':'')+'" data-f="'+esc(k)+'">'+esc(l)+'<i>'+n+'</i></button>'}
+ var h='<img class="bl-av" src="img/hoppr.webp?v=2" alt=""><div class="bl-hd">@bumyann</div>'+f('all','ALL MAIL',P.length)+f('star','STARRED',P.filter(function(p){return ST[p.id]}).length);
+ tags.forEach(function(t){h+=f(t,t.toUpperCase(),P.filter(function(p){return(p.tags||[]).indexOf(t)>-1}).length)});
+ $('bl-side').innerHTML=h;
+ $('bl-side').querySelectorAll('.bl-f').forEach(function(b){b.onclick=function(){folder=b.dataset.f;view='list';draw()}})}
+function draw(){
+ var u=P.some(unread);$('bl-dot').hidden=!u;
+ var showHero=P.length>0&&view==='list'&&folder==='all',L=P[0];$('bl-hero').hidden=!showHero;
+ if(showHero){$('bl-hk').textContent='LATEST POST · '+ago(L.date).toUpperCase();$('bl-ht').textContent=L.title;$('bl-hp').textContent=L.snippet||'';$('bl-hnew').hidden=!unread(L);var im=$('bl-him');if(L.image){im.className='bl-im has';im.style.backgroundImage='url('+JSON.stringify(L.image)+')'}else{im.className='bl-im';im.style.backgroundImage=''}$('bl-hr').onclick=function(){openP(L.id)}}
+ side();var v=P.filter(inFolder);$('bl-cnt').textContent=v.length+' POST'+(v.length==1?'':'S');
+ $('bl-list').hidden=view!=='list';$('bl-read').hidden=view!=='read';
+ var h='';v.forEach(function(p){h+='<div class="bl-row'+(unread(p)?' new':'')+'"><button type="button" class="bl-st'+(ST[p.id]?' on':'')+'" data-s="'+esc(p.id)+'" aria-pressed="'+(!!ST[p.id])+'" aria-label="star: '+esc(p.title)+'">'+STAR_SVG+'</button><button type="button" class="bl-open" data-id="'+esc(p.id)+'"><span class="bl-un" title="'+(unread(p)?'unread':'read')+'"></span><span class="bl-th"'+(p.image?' style="background-image:url('+esc(JSON.stringify(p.image))+')"':'')+'></span><span class="bl-tt"><b>'+esc(p.title)+'</b><span>'+esc(p.snippet||'')+'</span></span><span class="bl-ago">('+ago(p.date)+')</span></button></div>'});
+ $('bl-list').innerHTML=h||'<div class="bl-empty">NO MESSAGES YET</div>';
+ $('bl-list').querySelectorAll('.bl-st').forEach(function(b){b.onclick=function(){ST[b.dataset.s]=!ST[b.dataset.s];sv('bl_star',ST);draw()}});
+ $('bl-list').querySelectorAll('.bl-open').forEach(function(b){b.onclick=function(){openP(b.dataset.id)}})}
+function openP(id,quiet){var p=P.filter(function(x){return x.id===id})[0];if(!p)return;RD[id]=1;sv('bl_read',RD);view='read';
+ $('bl-read').innerHTML='<div class="bl-msg"><button type="button" class="bl-back" id="bl-bk">◂ INBOX</button><h3>'+esc(p.title)+'</h3><div class="bl-meta">FROM @bumyann · '+esc(p.date)+((p.tags||[]).length?' · '+p.tags.map(function(t){return'#'+esc(t)}).join(' '):'')+'</div>'+(p.body||[]).map(function(x){return'<p>'+x+'</p>'}).join('')+'</div>';
+ $('bl-bk').onclick=function(){view='list';draw();try{history.replaceState(null,'','#blog')}catch(e){}};
+ draw();try{history.replaceState(null,'','#post='+encodeURIComponent(id))}catch(e){}
+ if(!quiet){var r=root.getBoundingClientRect();if(r.top<0||r.top>innerHeight*.5)root.scrollIntoView({block:'start'})}}
+function fromHash(){var m=/#post=([^&]+)/.exec(location.hash);if(m){var id=decodeURIComponent(m[1]);if(P.some(function(p){return p.id===id})){openP(id,true);root.scrollIntoView({block:'start'})}}}
+draw();
+fetch('posts/index.json?v=1').then(function(r){return r.ok?r.json():[]}).then(function(a){if(Array.isArray(a)){P=a.filter(function(p){return p&&p.id&&p.title&&p.date}).sort(function(x,y){return x.date<y.date?1:-1});draw();fromHash()}}).catch(function(){});
+window.addEventListener('hashchange',fromHash);
+})();
