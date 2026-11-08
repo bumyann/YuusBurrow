@@ -28,3 +28,18 @@ function type(){if(rm){skip();return}clearInterval(timer);var i=0;el.textContent
 if('IntersectionObserver' in window&&!rm){el.textContent='';var io=new IntersectionObserver(function(es){if(es[0].isIntersecting){type();io.disconnect()}},{threshold:.5});io.observe(el)}
 document.querySelectorAll('.vn .bar button').forEach(function(b){b.onclick=function(){var a=b.dataset.a;if(a==='skip')skip();else if(a==='auto')type();else if(a==='theme')document.getElementById('mode').click();else toast(b.dataset.m)}});
 })();
+
+(function(){
+var tabs=[].slice.call(document.querySelectorAll('.tabs [role=tab]')),title=document.querySelector('#about .tb .t');
+function sel(t){tabs.forEach(function(b){var on=b===t;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;var p=document.getElementById(b.getAttribute('aria-controls'));p.classList.toggle('off',!on);p.setAttribute('aria-hidden',!on)});if(title)title.textContent=t.id==='tab-burrow'?'♥ hoppr.exe — why_a_burrow.txt':'♥ hoppr.exe'}
+tabs.forEach(function(b,i){b.onclick=function(){sel(b)};b.onkeydown=function(e){var n=null;if(e.key==='ArrowRight'||e.key==='ArrowDown')n=tabs[(i+1)%tabs.length];if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=tabs[(i+tabs.length-1)%tabs.length];if(n){e.preventDefault();sel(n);n.focus()}}});
+var fw=document.getElementById('fw'),op=document.getElementById('fwopen'),dni=document.getElementById('fw-dni'),rules=document.getElementById('fw-rules'),back=null;
+if(!fw||!op)return;
+function top(){return !dni.hidden?dni:(!rules.hidden?rules:null)}
+function focusTop(){var t=top();if(t){var b=t.querySelector('.pri');if(b)b.focus()}}
+function openFw(){back=document.activeElement;dni.hidden=false;rules.hidden=false;fw.classList.add('open');focusTop()}
+function closeOne(w){w.hidden=true;if(!top()){fw.classList.remove('open');if(back)back.focus()}else focusTop()}
+op.onclick=openFw;
+fw.querySelectorAll('[data-fwx]').forEach(function(b){b.onclick=function(){closeOne(b.dataset.fwx==='dni'?dni:rules)}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&fw.classList.contains('open')){var t=top();if(t)closeOne(t)}});
+})();
