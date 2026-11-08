@@ -234,7 +234,7 @@ fieldset.eq{border:0;margin:0 0 10px;padding:0;min-width:0;display:flex;flex-wra
 .pf .front{display:flex;align-items:center;justify-content:center;font-family:var(--pxl);font-size:12px;letter-spacing:3px;color:var(--acc);text-align:center}
 .pf .front .tp{font-weight:700}
 .pf .back{visibility:hidden}
-.pf.read .back{visibility:visible}.pf.read .front{visibility:hidden}
+.pf.read .back{visibility:inherit}.pf.read .front{visibility:hidden}
 .pf .ln{display:none!important}
 @media(max-width:820px){.pf.sel .ln{display:block!important;position:static;width:auto;height:auto;clip:auto;white-space:normal;grid-area:2/1}}
 .pf:not(.read):hover .front{color:var(--pink)}
