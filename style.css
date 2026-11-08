@@ -211,15 +211,18 @@ fieldset.eq{border:0;margin:0 0 10px;padding:0;min-width:0;display:flex;flex-wra
 .art .ct{display:block;font-size:12px;letter-spacing:2px;color:#d6dcff}.art .ct em{font-style:normal;color:#ffb3d6}
 .tabs button{font-size:10px;letter-spacing:1.5px;padding:12px 7px}
 
-/* stats tab */
-.attrs{display:grid;gap:2px 28px;grid-template-columns:1fr}
-@media(min-width:1000px){.attrs{grid-template-columns:1fr 1fr}}
-.attrs .row{grid-template-columns:118px 1fr 104px;font-size:11px;margin-bottom:12px}
-.attrs .row span:last-child{text-align:right}
-.panel .gd{font-family:var(--pxl);font-size:11px;letter-spacing:1px;color:var(--soft);margin:0 0 16px}
-.tabs button{font-size:11px;letter-spacing:2px;padding:14px 7px}
 
-.attrs{grid-template-columns:1fr!important;gap:0}
-.attrs .row{grid-template-columns:150px 1fr 120px;font-size:12px;margin-bottom:20px}
-.attrs .seg{height:16px}
-@media(max-width:820px){.attrs .row{grid-template-columns:96px 1fr 92px;font-size:9px;gap:6px}.attrs .row span:last-child{white-space:nowrap}}
+/* profile grid */
+.pc{float:right;color:var(--pink)}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.pf{position:relative;text-align:left;background:var(--chipbg);color:var(--ink);border:2px solid var(--line);padding:6px 10px 7px;cursor:pointer;box-shadow:3px 3px 0 var(--shadow);font-family:var(--mono);font-size:12px;line-height:1.4}
+.pf small{display:block;font-family:var(--pxl);font-size:9px;letter-spacing:2px;color:var(--soft)}
+.pf b{font-weight:400;display:block}
+.pf .ln{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;font-style:normal}
+.pf:hover,.pf:focus-visible{border-color:var(--pink);background:var(--paper);outline:none}
+.pf.sel{border-color:var(--pink);background:var(--paper)}
+.pf.read small::after{content:" ✓";color:var(--pink)}
+.pf.lock{border-style:dashed;opacity:.8}.pf.lock b{letter-spacing:4px}
+.pf.unlocked{animation:unl 1s steps(4) 2}@keyframes unl{50%{box-shadow:0 0 0 3px var(--pink),3px 3px 0 var(--shadow)}}
+.pf.shake{animation:sh2 .3s}@keyframes sh2{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+@media(max-width:820px){.pgrid{grid-template-columns:1fr}.pf.sel .ln{position:static;width:auto;height:auto;clip:auto;white-space:normal;display:block;margin-top:6px;padding-top:6px;border-top:2px dashed var(--line);font-size:13px}}
