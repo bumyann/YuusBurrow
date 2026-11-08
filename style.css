@@ -222,7 +222,19 @@ fieldset.eq{border:0;margin:0 0 10px;padding:0;min-width:0;display:flex;flex-wra
 .pf:hover,.pf:focus-visible{border-color:var(--pink);background:var(--paper);outline:none}
 .pf.sel{border-color:var(--pink);background:var(--paper)}
 .pf.read small::after{content:" ✓";color:var(--pink)}
-.pf.lock{border-style:dashed;opacity:.8}.pf.lock b{letter-spacing:4px}
+.pf.lock{border-style:dashed;opacity:.8}
 .pf.unlocked{animation:unl 1s steps(4) 2}@keyframes unl{50%{box-shadow:0 0 0 3px var(--pink),3px 3px 0 var(--shadow)}}
 .pf.shake{animation:sh2 .3s}@keyframes sh2{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
 @media(max-width:820px){.pgrid{grid-template-columns:1fr}.pf.sel .ln{position:static;width:auto;height:auto;clip:auto;white-space:normal;display:block;margin-top:6px;padding-top:6px;border-top:2px dashed var(--line);font-size:13px}}
+
+/* profile cards: topic only until clicked */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.pf{display:grid}
+.pf .face{grid-area:1/1;display:block}
+.pf .front{display:flex;align-items:center;justify-content:center;font-family:var(--pxl);font-size:12px;letter-spacing:3px;color:var(--acc);text-align:center}
+.pf .front .tp{font-weight:700}
+.pf .back{visibility:hidden}
+.pf.read .back{visibility:visible}.pf.read .front{visibility:hidden}
+.pf .ln{display:none!important}
+@media(max-width:820px){.pf.sel .ln{display:block!important;position:static;width:auto;height:auto;clip:auto;white-space:normal;grid-area:2/1}}
+.pf:not(.read):hover .front{color:var(--pink)}

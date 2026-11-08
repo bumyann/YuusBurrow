@@ -75,7 +75,7 @@ function n(){return others.filter(function(b){return read[b.dataset.id]}).length
 function unlocked(){return n()===others.length}
 function paint(){others.forEach(function(b){b.classList.toggle('read',!!read[b.dataset.id])});
  var u=unlocked();sec.classList.toggle('lock',!u);sec.setAttribute('aria-disabled',!u);sec.classList.toggle('read',!!read.secret&&u);
- sec.querySelector('b').textContent=u?sec.dataset.open:sec.dataset.closed;sec.querySelector('.lk').textContent=u?'🔓':'🔒';
+ sec.querySelector('.lk').textContent=u?'🔓':'🔒';
  cnt.textContent=u?'11/11 read — secret unlocked':n()+'/11 read'}
 function toast(m){if(!toastEl)return;toastEl.textContent=m;toastEl.classList.add('on');clearTimeout(toast._t);toast._t=setTimeout(function(){toastEl.classList.remove('on')},2000)}
 btns.forEach(function(b){b.onclick=function(){
@@ -84,7 +84,7 @@ btns.forEach(function(b){b.onclick=function(){
  var was=unlocked();
  btns.forEach(function(x){x.classList.remove('sel')});b.classList.add('sel');
  read[b.dataset.id]=1;save();paint();
- if(window.vnSay)window.vnSay(b.querySelector('.ln').textContent);
+ var lnTxt=b.querySelector('.ln').textContent;if(window.vnSay)window.vnSay(lnTxt);var sr=document.getElementById('vn-sr');if(sr)sr.textContent=b.querySelector('.back b').textContent.replace(/[.!?]+$/,'')+'. '+lnTxt;
  if(!was&&unlocked()){sec.classList.add('unlocked');toast('secret unlocked ♡')}
 }});
 paint();
