@@ -57,9 +57,9 @@ document.addEventListener('keydown',function(e){if(e.key==='Escape'&&fw.classLis
 var radios=document.querySelectorAll('.eq input'),t=document.getElementById('toast');
 if(!radios.length)return;
 radios.forEach(function(i){i.onchange=function(){
- document.getElementById('eqt').textContent=i.value;document.getElementById('eqb').textContent=i.value;
+ document.getElementById('eqt').textContent=i.value;var eb=document.getElementById('eqb');if(eb)eb.textContent=i.value;
  document.querySelectorAll('.eq label').forEach(function(l){l.classList.remove('on');var g=l.querySelector('.tag');if(g)g.remove()});
- var l=i.closest('label');l.classList.add('on');l.insertAdjacentHTML('beforeend','<span class="tag">EQUIPPED</span>');
+ var l=i.closest('label');l.classList.add('on');
  if(t){t.textContent='title equipped: '+i.value;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('on')},1800)}
 }});
 })();
