@@ -1,132 +1,120 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>yuu's burrow</title>
-  <meta name="description" content="yuu's burrow — bots, lore, prompts and tools.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>yuu's burrow</title>
+<meta name="description" content="yuu's burrow — bots, lore, prompts and tools.">
+<meta name="theme-color" content="#12153a">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 9 8' shape-rendering='crispEdges'%3E%3Cpath fill='%23ff9ecb' d='M1 0h2v1h3V0h2v1h1v3H8v1H7v1H6v1H5v1H4V7H3V6H2V5H1V4H0V1h1z'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Silkscreen:wght@400;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+
+<div class="topbar"><div class="ic"><a href="#about">＋</a><a href="#about">▣</a><a href="#creations">☰</a><a href="#boundaries">♡</a><a href="#creative">✦</a><a href="#coding">⌂</a></div>
+ <div class="q">“Permanently on infinite side quests.”</div><span class="clock" id="clock"></span><button class="mode" id="mode" aria-label="toggle theme">☾</button></div>
+
 <div class="wrap">
+ <div class="hero">
+  <svg class="planet" viewBox="0 0 200 130" shape-rendering="crispEdges">
+<ellipse cx="100" cy="68" rx="92" ry="22" fill="none" stroke="#ff8fc0" stroke-width="7"/>
+<circle cx="100" cy="62" r="44" fill="#b9a4ff"/>
+<path d="M62 78a44 44 0 0 0 76 0 44 44 0 0 1-76 0z" fill="#8d7bd8"/>
+<circle cx="86" cy="48" r="30" fill="#d7ccff" opacity=".55"/>
+<path d="M10 70a92 22 0 0 0 180 0" fill="none" stroke="#ff8fc0" stroke-width="7"/>
+<g fill="#ff8fc0"><rect x="10" y="8" width="8" height="8"/><rect x="182" y="14" width="8" height="8"/></g></svg><span class="planet-t">continue your story</span>
+  <h1 class="logo">YUU'S BURROW</h1>
+  <div class="sub">“Permanently on infinite side quests. I’ll work on a new bot soon… Probably.”</div>
+ </div>
 
-  <header>
-    <pre class="bunny" aria-hidden="true">(\_/)
-(•ᴗ•)
-/ &gt;♡</pre>
-    <h1>yuu's burrow</h1>
-    <div class="tag">“Permanently on infinite side quests. I’ll work on a new bot soon… Probably.”</div>
-  </header>
+ <nav class="dock" aria-label="apps">
+  <a class="app on" href="#about"><div class="b"><svg class="px " viewBox="0 0 9 8" shape-rendering="crispEdges" fill="currentColor"><path d="M1 0h1v1h-1zM2 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM4 7h1v1h-1z"/></svg></div>hoppr</a>
+  <a class="app" href="#creations"><div class="b"><svg class="px " viewBox="0 0 11 9" shape-rendering="crispEdges" fill="currentColor"><path d="M1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM8 0h1v1h-1zM9 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM9 1h1v1h-1zM10 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM10 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM9 3h1v1h-1zM10 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM10 4h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM4 8h1v1h-1z"/></svg></div>scribbl</a>
+  <a class="app" href="#boundaries"><div class="b"><svg class="px " viewBox="0 0 9 9" shape-rendering="crispEdges" fill="currentColor"><path d="M4 0h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1z"/></svg></div>firewall</a>
+  <a class="app" href="#creative"><div class="b"><svg class="px " viewBox="0 0 9 7" shape-rendering="crispEdges" fill="currentColor"><path d="M4 0h1v1h-1zM4 1h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM4 5h1v1h-1zM4 6h1v1h-1z"/></svg></div>aeternum.net</a>
+  <a class="app" href="#coding"><div class="b"><svg class="px " viewBox="0 0 9 7" shape-rendering="crispEdges" fill="currentColor"><path d="M0 0h1v1h-1zM1 0h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1z"/></svg></div>burrowlabs</a>
+  <span class="sep" aria-hidden="true"></span>
+  <a class="app ext" href="#" target="_blank" rel="noopener"><div class="b"><svg class="px " viewBox="0 0 9 8" shape-rendering="crispEdges" fill="currentColor"><path d="M6 0h1v1h-1zM7 0h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1z"/></svg></div>janitorai</a>
+  <a class="app ext" href="#" target="_blank" rel="noopener"><div class="b"><svg class="px " viewBox="0 0 12 6" shape-rendering="crispEdges" fill="currentColor"><path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM10 2h1v1h-1zM11 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1z"/></svg></div>saucepanai</a>
+  <a class="app ext" href="#" target="_blank" rel="noopener"><div class="b"><svg class="px " viewBox="0 0 10 8" shape-rendering="crispEdges" fill="currentColor"><path d="M2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM9 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM0 5h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1z"/></svg></div>chubai</a>
+  <a class="app ext" href="#" target="_blank" rel="noopener"><div class="b"><svg class="px " viewBox="0 0 8 6" shape-rendering="crispEdges" fill="currentColor"><path d="M2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1z"/></svg></div>illarin</a>
+  <a class="app ext" href="https://github.com/bumyann" target="_blank" rel="noopener"><div class="b"><svg class="px " viewBox="0 0 9 8" shape-rendering="crispEdges" fill="currentColor"><path d="M0 0h1v1h-1zM8 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM0 5h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1z"/></svg></div>github</a>
+  <span class="sep" aria-hidden="true"></span>
+  <button class="app" id="logout" type="button"><div class="b"><svg class="px " viewBox="0 0 10 8" shape-rendering="crispEdges" fill="currentColor"><path d="M4 0h1v1h-1zM5 0h1v1h-1zM2 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM7 1h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM8 3h1v1h-1zM9 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM0 5h1v1h-1zM1 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1z"/></svg></div>log out</button>
+ </nav>
 
-  <nav>
-    <a href="#about">about</a>
-    <a href="#creations">creations</a>
-    <a href="#boundaries">boundaries</a>
-    <a href="#rabbithole">down the rabbithole</a>
-  </nav>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <h2>welcome to the burrow!</h2>
-    <div class="card">
-      <details open>
-        <summary>about the rabbit</summary>
-        <div class="body about-grid">
-          <div>
-            <p>Call me Yuu or Yann!</p>
-            <p>I'm 19, a bisexual demiboy, and a professional overthinker who's basically operating on a permanent 24/7 exhaustion debuff from a shitty immune system and a chronic lack of sleep. I’m a perfectionist with ADHD and PDD, which is a fancy way of saying I have the ambition of a god but the consistency of a 2020 Naruto fanfic that gets updated once a year.</p>
-            <p>If I disappear for months, just know I haven't abandoned anything. I’m probably just overthinking a single sentence or rotting in bed from perpetual illness.</p>
-            <p>I tend to get aggressively passionate about my interests and have some pretty strong opinions, but I promise it’s just me being an annoying ass yapper and not actually me being mean. I’m pretty easygoing and always down to make new friends, provided you don't mind my glacial pace and the fact that I’m probably feeling cooked 24/7.</p>
-          </div>
-          <!-- swap for your bunny sticker: <img src="img/sticker.png" alt="cyber-goth bunny sticker"> -->
-          <div class="sticker">[ your bunny sticker goes here ]</div>
-        </div>
-      </details>
+ <section class="win" id="about"><div class="tb"><span class="t">♥ hoppr.exe</span><span class="sq">_</span><span class="sq">□</span><span class="sq">x</span></div>
+  <div class="inner about">
+   <div>
+    <span class="tabname">YUU</span><span class="meta">online now</span>
+    <div class="art"><div><b>YUU</b>[ bunny sticker goes here ]<br>img/sticker.png</div></div>
+    <div class="stat">
+     <div class="row"><span>ENERGY</span><div class="seg"><i style="width:30%"></i></div><span>30%</span></div>
+     <div class="row"><span>OVERTHINK</span><div class="seg"><i style="width:100%"></i></div><span>100%</span></div>
+     <div class="row"><span>NEW BOT ETA</span><div class="seg"><i style="width:8%"></i></div><span>??</span></div>
+     <div class="hearts"><span><svg class="px " viewBox="0 0 9 8" shape-rendering="crispEdges" fill="currentColor"><path d="M1 0h1v1h-1zM2 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM4 7h1v1h-1z"/></svg></span><span><svg class="px " viewBox="0 0 9 8" shape-rendering="crispEdges" fill="currentColor"><path d="M1 0h1v1h-1zM2 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM4 7h1v1h-1z"/></svg></span><span><svg class="px " viewBox="0 0 9 8" shape-rendering="crispEdges" fill="currentColor"><path d="M1 0h1v1h-1zM2 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM4 7h1v1h-1z"/></svg></span><span><svg class="px " viewBox="0 0 9 8" shape-rendering="crispEdges" fill="currentColor"><path d="M1 0h1v1h-1zM2 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM4 7h1v1h-1z"/></svg></span><span class="e"><svg class="px " viewBox="0 0 9 8" shape-rendering="crispEdges" fill="currentColor"><path d="M1 0h1v1h-1zM2 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM4 7h1v1h-1z"/></svg></span></div>
+     <svg class="pulse" viewBox="0 0 120 22" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="2" shape-rendering="crispEdges"><path d="M0 12h30l4-8 5 16 5-14 4 6h72"/></svg>
     </div>
+   </div>
+   <div>
+    <div class="pane"><p>Call me Yuu or Yann!</p>
+     <p>I'm 19, a bisexual demiboy, and a professional overthinker who's basically operating on a permanent 24/7 exhaustion debuff from a shitty immune system and a chronic lack of sleep. I’m a perfectionist with ADHD and PDD, which is a fancy way of saying I have the ambition of a god but the consistency of a 2020 Naruto fanfic that gets updated once a year.</p>
+     <p>If I disappear for months, just know I haven't abandoned anything. I’m probably just overthinking a single sentence or rotting in bed from perpetual illness.</p>
+     <p>I tend to get aggressively passionate about my interests and have some pretty strong opinions, but I promise it’s just me being an annoying ass yapper and not actually me being mean. I’m pretty easygoing and always down to make new friends, provided you don't mind my glacial pace and the fact that I’m probably feeling cooked 24/7.</p></div>
+    <div class="say">“Permanently on infinite side quests. I’ll work on a new bot soon… Probably.”</div>
+   </div>
+  </div></section>
 
-    <div class="card">
-      <details>
-        <summary>why a burrow?</summary>
-        <div class="body">
-          <p>I like rabbits. Rabbits have burrows. Naturally, I’ll have my own burrow. Duh.</p>
-          <p>This is essentially a space where I dump all my bullshit for public access. Most of this exists because I got frustrated that nothing was detailed enough for what I actually wanted to write, so I built it from scratch. Severely poor impulse control and overly ambitious ideas have been a consistent contributor to this page’s existence.</p>
-          <p>I do this for the love of the game. I want something, I make it. If it doesn’t fit my needs, I make something else.</p>
-          <p>If something here is useful to you, take it. If you want to see something specific, I'm always open to suggestions — just know my turnaround time is when inspiration strikes, which is a polite way of saying when I feel like it.</p>
-        </div>
-      </details>
-    </div>
-  </section>
+ <section class="win"><div class="tb"><span class="t">why_a_burrow.txt</span><span class="sq" data-m>_</span><span class="sq">□</span><span class="sq">x</span></div>
+  <div class="inner"><div class="pane">
+   <p>I like rabbits. Rabbits have burrows. Naturally, I’ll have my own burrow. Duh.</p>
+   <p>This is essentially a space where I dump all my bullshit for public access. Most of this exists because I got frustrated that nothing was detailed enough for what I actually wanted to write, so I built it from scratch. Severely poor impulse control and overly ambitious ideas have been a consistent contributor to this page’s existence.</p>
+   <p>I do this for the love of the game. I want something, I make it. If it doesn’t fit my needs, I make something else.</p>
+   <p>If something here is useful to you, take it. If you want to see something specific, I'm always open to suggestions — just know my turnaround time is when inspiration strikes, which is a polite way of saying when I feel like it.</p></div></div></section>
 
-  <!-- CREATIONS -->
-  <section id="creations">
-    <h2>the rabbit's creations</h2>
-    <div class="card">
-      <details open>
-        <summary>what i write</summary>
-        <div class="body">
-          <ul>
-            <li>MLM, Queer AnyPOV, WLW, Fantasy, Academia, Fluff, Angst, Smut, Dead Dove.</li>
-            <li>I write MLM and AnyPOV with the occasional WLW! There will most likely be more MLM than AnyPOV, as I've found that I prefer writing MLM. But if my male characters aren't exclusively gay, they will still have both MalePOV and AnyPOV intros so that my AnyPOV baddies won't be left out! This principle will also apply to my female bots &lt;3</li>
-            <li>My bots are a spectrum — I like writing fluffy green flags, but I also like writing degenerate black flags. Expect a whole colour wheel for the scale of my characters.</li>
-            <li>I do take free requests! You can fill in my google form, and pick between two different methods of requesting for those with vague ideas and others with specific concepts in mind!</li>
-          </ul>
-          <!-- TODO: paste your google form link -->
-          <a class="btn" href="#TODO-google-form">request a bot ♡</a>
-        </div>
-      </details>
-    </div>
-  </section>
+ <section class="win" id="creations"><div class="tb"><span class="t">♥ scribbl.doc</span><span class="sq" data-m>_</span><span class="sq">□</span><span class="sq">x</span></div>
+  <div class="inner two"><div>
+   <div class="chips"><span class="a">MLM</span><span class="b">Queer AnyPOV</span><span class="c">WLW</span><span class="d">Fantasy</span><span class="a">Academia</span><span class="c">Fluff</span><span class="b">Angst</span><span class="d">Smut</span><span class="a">Dead Dove</span></div>
+   <div class="pane"><ul>
+    <li>I write MLM and AnyPOV with the occasional WLW! There will most likely be more MLM than AnyPOV, as I've found that I prefer writing MLM. But if my male characters aren't exclusively gay, they will still have both MalePOV and AnyPOV intros so that my AnyPOV baddies won't be left out! This principle will also apply to my female bots &lt;3</li>
+    <li>My bots are a spectrum — I like writing fluffy green flags, but I also like writing degenerate black flags. Expect a whole colour wheel for the scale of my characters.</li>
+    <li>I do take free requests! You can fill in my google form, and pick between two different methods of requesting for those with vague ideas and others with specific concepts in mind!</li></ul></div></div>
+   <aside class="ad"><div class="h"><span>HOT BOTS IN YOUR AREA</span><span>x</span></div>
+    <div class="pic"><span class="stk l">NEW!</span><span class="stk r">FREE!</span>[ sticker / art ]</div>
+    <div class="nw">★ NOW TAKING ★</div><h4>REQUESTS</h4>
+    <div style="text-align:center;padding-bottom:14px"><a class="btn" href="#">REQUEST A BOT ♡</a></div></aside>
+  </div></section>
 
-  <!-- BOUNDARIES -->
-  <section id="boundaries">
-    <h2>the rabbit's boundaries</h2>
-    <div class="card">
-      <details>
-        <summary>do not interact if you're…</summary>
-        <div class="body">
-          <ul>
-            <li>Homophobic, Transphobic, Xenophobic, Islamophobic, Misogynistic, Sexist, Ableist, etc. You're not edgy or cool, you're just a loser.</li>
-            <li>Uncomfortable with my content. Just go away, man. You don't need to tell me whether you dislike certain tropes I write. The world keeps spinning either way.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-    <div class="card">
-      <details>
-        <summary>rules</summary>
-        <div class="body">
-          <ul>
-            <li>I block freely. I don't need to tell you why, either. If you're blocked, chances are you've either broken one of my rules, are part of my DNI list, or I simply don't vibe with you and/or your content. No hard feelings.</li>
-            <li>Do not ask for POV changes. If I make a bot that is exclusively MLM and WLW, it will stay exclusively MLM and WLW.</li>
-            <li>Complaining about a bot being set in AnyPOV/FemPOV. You may not be demanding for a POV change, but it's equally disrespectful. There's plenty of FemPOV/AnyPOV creators on this website writing similar content. I'd like to make content that could be just for me and my community, thank you.</li>
-            <li>Create a private version of my bots if you really want to, just don't mention them to me. <span class="dni">Especially</span> if you change my bots from MLM/WLW to MLW. This is the one thing I absolutely cannot tolerate, and no, I don't care how badly you want to RP with it. It warrants an instant block, so you're better off not telling me at all.</li>
-            <li>I'm serious when I say I seriously do not tolerate any transphobia when it comes to my transgender and gender nonconforming characters. My transman characters can have tits and a pussy if they want to. My transwomen characters can have a dick and present as masculine if they want to. Basic respect isn't difficult.</li>
-          </ul>
-        </div>
-      </details>
-    </div>
-  </section>
+ <section id="boundaries"><div class="stack">
+  <div class="win"><div class="tb"><span class="warnic"><svg class="px " viewBox="0 0 9 9" shape-rendering="crispEdges" fill="currentColor"><path d="M4 0h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1z"/></svg></span><span class="t">blocklist.txt</span><span class="sq" data-m>_</span></div>
+   <div class="inner"><div class="pane"><ul>
+    <li>Homophobic, Transphobic, Xenophobic, Islamophobic, Misogynistic, Sexist, Ableist, etc. You're not edgy or cool, you're just a loser.</li>
+    <li>Uncomfortable with my content. Just go away, man. You don't need to tell me whether you dislike certain tropes I write. The world keeps spinning either way.</li></ul></div></div></div>
+  <div class="win"><div class="tb"><span class="warnic"><svg class="px " viewBox="0 0 9 9" shape-rendering="crispEdges" fill="currentColor"><path d="M4 0h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1zM8 7h1v1h-1zM0 8h1v1h-1zM1 8h1v1h-1zM2 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM5 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM8 8h1v1h-1z"/></svg></span><span class="t">firewall.cfg</span><span class="sq" data-m>_</span></div>
+   <div class="inner"><div class="pane"><ul class="rules">
+    <li>I block freely. I don't need to tell you why, either. If you're blocked, chances are you've either broken one of my rules, are part of my DNI list, or I simply don't vibe with you and/or your content. No hard feelings.</li>
+    <li>Do not ask for POV changes. If I make a bot that is exclusively MLM and WLW, it will stay exclusively MLM and WLW.</li>
+    <li>Complaining about a bot being set in AnyPOV/FemPOV. You may not be demanding for a POV change, but it's equally disrespectful. There's plenty of FemPOV/AnyPOV creators on this website writing similar content. I'd like to make content that could be just for me and my community, thank you.</li>
+    <li>Create a private version of my bots if you really want to, just don't mention them to me. <span class="dni">Especially</span> if you change my bots from MLM/WLW to MLW. This is the one thing I absolutely cannot tolerate, and no, I don't care how badly you want to RP with it. It warrants an instant block, so you're better off not telling me at all.</li>
+    <li>I'm serious when I say I seriously do not tolerate any transphobia when it comes to my transgender and gender nonconforming characters. My transman characters can have tits and a pussy if they want to. My transwomen characters can have a dick and present as masculine if they want to. Basic respect isn't difficult.</li></ul></div></div></div>
+ </div></section>
 
-  <!-- RABBITHOLE: links out to Notion -->
-  <section id="rabbithole">
-    <h2>down the rabbithole</h2>
-    <p style="color:var(--muted)">the heavy stuff lives in notion. new things get added there, so this page never needs touching.</p>
-    <div class="links">
-      <!-- TODO: replace each # with the public notion.site URL for that page/database -->
-      <a class="link-card" href="#TODO-notion-prompts"><b>prompts.</b><span>F.A.Y.E. / FAYEO3 advanced prompts</span></a>
-      <a class="link-card" href="#TODO-notion-tools"><b>tools.</b><span>stuff i built, free to use</span></a>
-      <a class="link-card" href="#TODO-notion-characters"><b>characters.</b><span>OCs and bot cast</span></a>
-      <a class="link-card" href="#TODO-notion-templates"><b>templates.</b><span>card + lorebook templates</span></a>
-    </div>
-  </section>
+ <section id="creative" style="margin-top:6px"><div class="win"><div class="tb"><span class="t">✦ aeternum.net/</span><span class="sq" data-m>_</span><span class="sq">□</span><span class="sq">x</span></div>
+  <div class="inner"><p class="gd">the creative side — worlds and people. lives in notion.</p><div class="cards">
+   <a class="card" href="#"><div class="st">online now</div><div class="im"><svg class="px " viewBox="0 0 11 7" shape-rendering="crispEdges" fill="currentColor"><path d="M4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM9 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM9 3h1v1h-1zM10 3h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1z"/></svg></div><div class="nm">universes.</div><div class="ds">Celestalis / Aeternum.net / Amaranthine</div><div class="bt"><span>OPEN</span></div></a>
+   <a class="card" href="#"><div class="st">online now</div><div class="im"><svg class="px " viewBox="0 0 9 8" shape-rendering="crispEdges" fill="currentColor"><path d="M1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM7 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM0 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1z"/></svg></div><div class="nm">characters.</div><div class="ds">OCs and bot cast</div><div class="bt"><span>OPEN</span></div></a>
+  </div></div></div></section>
+ <section id="coding"><div class="win"><div class="tb"><span class="t">&gt;_ burrowlabs/</span><span class="sq" data-m>_</span><span class="sq">□</span><span class="sq">x</span></div>
+  <div class="inner"><p class="gd">the coding side — prompts, tools and templates. lives in notion.</p><div class="cards">
+   <a class="card" href="#"><div class="st">online now</div><div class="im"><svg class="px " viewBox="0 0 9 7" shape-rendering="crispEdges" fill="currentColor"><path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM7 1h1v1h-1zM8 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM7 3h1v1h-1zM8 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM7 4h1v1h-1zM8 4h1v1h-1zM0 5h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM7 5h1v1h-1zM8 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1z"/></svg></div><div class="nm">prompts.</div><div class="ds">F.A.Y.E. / FAYEO3 advanced prompts</div><div class="bt"><span>OPEN</span></div></a>
+   <a class="card" href="#"><div class="st">online now</div><div class="im"><svg class="px " viewBox="0 0 7 8" shape-rendering="crispEdges" fill="currentColor"><path d="M2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM3 3h1v1h-1zM3 4h1v1h-1zM3 5h1v1h-1zM3 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1z"/></svg></div><div class="nm">tools.</div><div class="ds">stuff i built, free to use</div><div class="bt"><span>OPEN</span></div></a>
+   <a class="card" href="#"><div class="st">online now</div><div class="im"><svg class="px " viewBox="0 0 7 8" shape-rendering="crispEdges" fill="currentColor"><path d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM0 1h1v1h-1zM1 1h1v1h-1zM2 1h1v1h-1zM3 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM6 1h1v1h-1zM0 2h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM6 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM6 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM5 4h1v1h-1zM6 4h1v1h-1zM0 5h1v1h-1zM1 5h1v1h-1zM2 5h1v1h-1zM3 5h1v1h-1zM4 5h1v1h-1zM5 5h1v1h-1zM6 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM0 7h1v1h-1zM1 7h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1z"/></svg></div><div class="nm">templates.</div><div class="ds">card + lorebook templates</div><div class="bt"><span>OPEN</span></div></a>
+  </div></div></div></section>
 
-  <footer>
-    <p>(\_/) thanks for visiting ♡</p>
-  </footer>
-
+ <footer>(\_/) THANKS FOR VISITING ♡</footer>
 </div>
-</body>
-</html>
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="mt"><div class="win">
+ <div class="tb"><span class="t" id="mt">logout.exe</span><button class="sq" type="button" data-x aria-label="close">x</button></div>
+ <div class="inner"><div class="dlg"><div class="ico"><svg class="px " viewBox="0 0 10 8" shape-rendering="crispEdges" fill="currentColor"><path d="M4 0h1v1h-1zM5 0h1v1h-1zM2 1h1v1h-1zM4 1h1v1h-1zM5 1h1v1h-1zM7 1h1v1h-1zM1 2h1v1h-1zM2 2h1v1h-1zM4 2h1v1h-1zM5 2h1v1h-1zM7 2h1v1h-1zM8 2h1v1h-1zM0 3h1v1h-1zM1 3h1v1h-1zM4 3h1v1h-1zM5 3h1v1h-1zM8 3h1v1h-1zM9 3h1v1h-1zM0 4h1v1h-1zM1 4h1v1h-1zM8 4h1v1h-1zM9 4h1v1h-1zM0 5h1v1h-1zM1 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM7 6h1v1h-1zM8 6h1v1h-1zM2 7h1v1h-1zM3 7h1v1h-1zM4 7h1v1h-1zM5 7h1v1h-1zM6 7h1v1h-1zM7 7h1v1h-1z"/></svg></div><div>
+  <div id="s1"><p><b>leave the burrow?</b></p><small>your side quests will not be saved.</small>
+   <div class="mbtns"><button type="button" data-x>stay</button><button type="button" class="pri" id="yes">yes, log out</button></div></div>
+  <div id="s2" hidden><p><b>ERROR 404: exit not found</b></p><small>you are permanently on infinite side quests. logout cancelled. probably.</small>
+   <div class="mbtns"><button type="button" class="pri" id="ok">ok :(</button></div></div>
+ </div></div></div></div></div>
+<script src="script.js"></script></body></html>
