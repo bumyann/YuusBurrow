@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>yuu's burrow — C: desktop</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
+<style>
+:root{--face:#d9cff0;--hi:#fff;--sh:#7d6aa6;--dk:#2a2040;--pink:#ff9ecb;--lav:#b9a4ff;--mint:#9ff0d4;--ink:#1a1226;--px:"VT323",monospace;--body:"DM Sans",system-ui,sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;font-family:var(--body);color:var(--ink);line-height:1.55;
+ background:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px) 0 0/16px 16px,linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px) 0 0/16px 16px,radial-gradient(circle at 25% 20%,#5a3590,transparent 45%),radial-gradient(circle at 80% 75%,#8a2d6b,transparent 45%),#2b1d44}
+.logo{position:fixed;right:24px;bottom:70px;font-family:var(--px);font-size:64px;line-height:.9;color:rgba(255,158,203,.35);text-align:right;pointer-events:none;user-select:none}
+.icons{position:fixed;left:14px;top:14px;display:grid;grid-template-columns:90px;gap:6px;z-index:1}
+.ic{background:none;border:2px solid transparent;color:#fff;text-align:center;font-family:var(--px);font-size:20px;line-height:1.05;padding:6px 2px;cursor:pointer;text-decoration:none;display:block}
+.ic:hover,.ic:focus{background:rgba(185,164,255,.3);border:2px dotted #fff;outline:none}
+.ic .g{font-size:38px;display:block;filter:drop-shadow(2px 2px 0 rgba(0,0,0,.5))}
+.win{position:absolute;background:var(--face);border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);box-shadow:inset -1px -1px 0 var(--sh),6px 6px 0 rgba(0,0,0,.45);display:none;flex-direction:column;max-width:calc(100vw - 8px)}
+.win.open{display:flex}
+.tb{display:flex;align-items:center;gap:6px;background:linear-gradient(90deg,#4a3a7a,#7d6aa6);color:#e8e0ff;font-family:var(--px);font-size:22px;padding:2px 4px 2px 8px;cursor:move;touch-action:none;user-select:none}
+.win.active .tb{background:linear-gradient(90deg,#6c4bd1,#ff7fbf);color:#fff}
+.tb .t{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tb button{font-family:var(--px);font-size:18px;line-height:1;width:22px;height:22px;background:var(--face);border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);cursor:pointer;color:var(--ink);padding:0}
+.pane{margin:5px;background:#fffafd;border:2px solid;border-color:var(--dk) var(--hi) var(--hi) var(--dk);padding:12px 16px;overflow:auto;flex:1;font-size:15px}
+p{margin:0 0 10px}ul{padding-left:20px;margin:0 0 10px}li{margin-bottom:6px}
+.btn{display:inline-block;font-family:var(--px);font-size:22px;padding:2px 16px;color:var(--ink);background:var(--face);text-decoration:none;border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi)}
+.dni{color:#d94d92;font-weight:700}
+.sticker{float:right;margin:0 0 8px 12px;width:120px;aspect-ratio:1;border:2px dashed var(--sh);display:grid;place-items:center;font-family:var(--px);font-size:16px;color:var(--sh);text-align:center;padding:6px}
+.bunny{font-family:var(--px);font-size:34px;line-height:1.05;color:#d94d92;margin:0;text-align:center}
+h1{font-family:var(--px);font-weight:400;font-size:52px;line-height:1;margin:0;color:#d94d92;text-shadow:3px 3px 0 var(--lav);text-align:center}
+.tag{margin-top:12px;border:2px dashed var(--sh);padding:8px 12px;font-style:italic;background:#f3edff;text-align:center}
+.files{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px}
+.files a{text-decoration:none;color:var(--ink);text-align:center;padding:8px 4px;border:2px solid transparent}
+.files a:hover{background:#e9defc;border:2px dotted var(--ink)}
+.files .g{font-size:40px;display:block}.files b{font-family:var(--px);font-weight:400;font-size:24px;color:#6c4bd1;display:block}.files span{font-size:12px;color:#5b4d7d}
+.task{position:fixed;left:0;right:0;bottom:0;height:44px;background:var(--face);border-top:2px solid var(--hi);box-shadow:0 -2px 0 var(--sh);display:flex;align-items:center;gap:6px;padding:0 6px;font-family:var(--px);font-size:21px;z-index:9999}
+.start{padding:0 12px;height:32px;background:var(--face);border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);font-family:var(--px);font-size:22px;cursor:pointer;font-weight:700;color:var(--ink)}
+.tasks{display:flex;gap:6px;flex:1;overflow:hidden}
+.tasks button{font-family:var(--px);font-size:20px;color:var(--ink);padding:0 10px;height:30px;border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);background:var(--face);white-space:nowrap;cursor:pointer;max-width:160px;overflow:hidden;text-overflow:ellipsis}
+.tasks button.on{border-color:var(--dk) var(--hi) var(--hi) var(--dk);background:#eee8fb;font-weight:700}
+.clock{border:2px solid;border-color:var(--dk) var(--hi) var(--hi) var(--dk);padding:0 10px;height:30px;line-height:28px}
+.sm{position:fixed;left:6px;bottom:46px;width:220px;background:var(--face);border:2px solid;border-color:var(--hi) var(--dk) var(--dk) var(--hi);box-shadow:5px 5px 0 rgba(0,0,0,.45);display:none;z-index:9998;font-family:var(--px);font-size:24px}
+.sm.open{display:flex}.sm .side{writing-mode:vertical-rl;transform:rotate(180deg);background:linear-gradient(0deg,#6c4bd1,#ff7fbf);color:#fff;padding:8px 4px;font-size:26px;letter-spacing:2px}
+.sm div.l{flex:1}.sm a,.sm button{display:block;width:100%;text-align:left;background:none;border:0;font:inherit;color:var(--ink);padding:3px 12px;cursor:pointer;text-decoration:none}
+.sm a:hover,.sm button:hover{background:var(--ink);color:var(--pink)}
+.hint{position:fixed;left:50%;top:14px;transform:translateX(-50%);font-family:var(--px);font-size:20px;color:#e8e0ff;background:rgba(0,0,0,.45);padding:2px 12px;border:1px dashed var(--lav);z-index:1}
+@media(max-width:700px){
+ html,body{overflow:auto;height:auto}
+ .icons{position:static;grid-template-columns:repeat(4,1fr);padding:10px 8px;display:grid}
+ .hint,.logo{display:none}
+ .win,.win.open{position:static!important;display:flex;margin:10px 8px;width:auto!important;height:auto!important;max-width:none}
+ .win:not(.open){display:none}
+ .task{position:fixed}body{padding-bottom:56px}.tasks{display:none}.tb{cursor:default}
+}
+</style></head><body>
+<div class="hint">drag the windows around ♡</div>
+<div class="icons">
+ <button class="ic" data-w="welcome"><span class="g">🐰</span>welcome.exe</button>
+ <button class="ic" data-w="about"><span class="g">📝</span>about the rabbit</button>
+ <button class="ic" data-w="creations"><span class="g">💾</span>what i write</button>
+ <button class="ic" data-w="rules"><span class="g">⚠️</span>DNI + rules</button>
+ <button class="ic" data-w="hole"><span class="g">🕳️</span>rabbithole</button>
+</div>
+<div class="logo">yuu's<br>burrow</div>
+
+<div class="win" id="welcome" style="left:150px;top:60px;width:430px"><div class="tb"><span class="t">welcome.exe</span><button data-c>x</button></div>
+ <div class="pane"><pre class="bunny">(\_/)
+(•ᴗ•)
+/ &gt;♡</pre><h1>yuu's burrow</h1><div class="tag">“Permanently on infinite side quests. I’ll work on a new bot soon… Probably.”</div></div></div>
+
+<div class="win" id="about" style="left:230px;top:110px;width:520px;height:380px"><div class="tb"><span class="t">about_the_rabbit.txt</span><button data-c>x</button></div>
+ <div class="pane"><div class="sticker">[ bunny sticker ]</div><p>Call me Yuu or Yann!</p>
+  <p>I'm 19, a bisexual demiboy, and a professional overthinker who's basically operating on a permanent 24/7 exhaustion debuff from a shitty immune system and a chronic lack of sleep. I’m a perfectionist with ADHD and PDD, which is a fancy way of saying I have the ambition of a god but the consistency of a 2020 Naruto fanfic that gets updated once a year.</p>
+  <p>If I disappear for months, just know I haven't abandoned anything. I’m probably just overthinking a single sentence or rotting in bed from perpetual illness.</p></div></div>
+
+<div class="win" id="creations" style="left:300px;top:150px;width:480px;height:330px"><div class="tb"><span class="t">what_i_write.doc</span><button data-c>x</button></div>
+ <div class="pane"><ul><li>MLM, Queer AnyPOV, WLW, Fantasy, Academia, Fluff, Angst, Smut, Dead Dove.</li>
+  <li>My bots are a spectrum — I like writing fluffy green flags, but I also like writing degenerate black flags. Expect a whole colour wheel for the scale of my characters.</li>
+  <li>I do take free requests! You can fill in my google form…</li></ul><a class="btn" href="#">request a bot ♡</a></div></div>
+
+<div class="win" id="rules" style="left:200px;top:90px;width:500px;height:340px"><div class="tb"><span class="t">⚠ DNI_and_rules.txt</span><button data-c>x</button></div>
+ <div class="pane"><ul><li>Homophobic, Transphobic, Xenophobic, Islamophobic, Misogynistic, Sexist, Ableist, etc. You're not edgy or cool, you're just a loser.</li>
+  <li>I block freely. I don't need to tell you why, either.</li>
+  <li>Do not ask for POV changes. <span class="dni">Especially</span> if you change my bots from MLM/WLW to MLW.</li></ul></div></div>
+
+<div class="win" id="hole" style="left:260px;top:130px;width:470px"><div class="tb"><span class="t">C:\burrow\notion\</span><button data-c>x</button></div>
+ <div class="pane"><div class="files">
+  <a href="#"><span class="g">📁</span><b>prompts.</b><span>F.A.Y.E. / FAYEO3</span></a>
+  <a href="#"><span class="g">🛠️</span><b>tools.</b><span>free to use</span></a>
+  <a href="#"><span class="g">👾</span><b>characters.</b><span>OCs + bot cast</span></a>
+  <a href="#"><span class="g">📄</span><b>templates.</b><span>card + lorebook</span></a></div></div></div>
+
+<div class="sm" id="sm"><div class="side">burrow98</div><div class="l">
+ <button data-w="welcome">🐰 welcome</button><button data-w="about">📝 about</button><button data-w="creations">💾 creations</button><button data-w="rules">⚠ rules</button><button data-w="hole">🕳 rabbithole</button></div></div>
+<div class="task"><button class="start" id="start">🐰 start</button><div class="tasks" id="tasks"></div><div class="clock" id="clock"></div></div>
+<script>
+var wins={};var z=10;var $=function(s,r){return(r||document).querySelector(s)};
+var names={welcome:'welcome.exe',about:'about.txt',creations:'what_i_write',rules:'rules',hole:'rabbithole'};
+document.querySelectorAll('.win').forEach(function(w){wins[w.id]=w;
+ var tb=$('.tb',w),sx,sy,ox,oy,drag=false;
+ w.addEventListener('pointerdown',function(){focus(w.id)});
+ tb.addEventListener('pointerdown',function(e){if(e.target.tagName==='BUTTON'||innerWidth<=700)return;drag=true;sx=e.clientX;sy=e.clientY;ox=w.offsetLeft;oy=w.offsetTop;tb.setPointerCapture(e.pointerId)});
+ tb.addEventListener('pointermove',function(e){if(!drag)return;w.style.left=Math.max(0,ox+e.clientX-sx)+'px';w.style.top=Math.max(0,Math.min(innerHeight-90,oy+e.clientY-sy))+'px'});
+ tb.addEventListener('pointerup',function(){drag=false});
+ $('[data-c]',w).onclick=function(){w.classList.remove('open');bar()}});
+function focus(id){var w=wins[id];w.style.zIndex=++z;Object.values(wins).forEach(function(x){x.classList.remove('active')});w.classList.add('active');bar()}
+function openW(id){wins[id].classList.add('open');focus(id);$('#sm').classList.remove('open')}
+function bar(){var t=$('#tasks');t.innerHTML='';Object.keys(wins).forEach(function(id){var w=wins[id];if(!w.classList.contains('open'))return;var b=document.createElement('button');b.textContent=names[id];if(w.classList.contains('active'))b.className='on';b.onclick=function(){focus(id)};t.appendChild(b)})}
+document.querySelectorAll('[data-w]').forEach(function(b){b.addEventListener('click',function(){openW(b.dataset.w)})});
+$('#start').onclick=function(e){e.stopPropagation();$('#sm').classList.toggle('open')};
+document.addEventListener('click',function(e){if(!e.target.closest('#sm'))$('#sm').classList.remove('open')});
+function t(){$('#clock').textContent=new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}t();setInterval(t,30000);
+openW('welcome');openW('about');focus('about');
+</script></body></html>
