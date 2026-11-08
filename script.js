@@ -52,3 +52,14 @@ op.onclick=openFw;
 fw.querySelectorAll('[data-fwx]').forEach(function(b){b.onclick=function(){closeOne(b.dataset.fwx==='dni'?dni:rules)}});
 document.addEventListener('keydown',function(e){if(e.key==='Escape'&&fw.classList.contains('open')){var t=top();if(t)closeOne(t)}});
 })();
+
+(function(){
+var radios=document.querySelectorAll('.eq input'),t=document.getElementById('toast');
+if(!radios.length)return;
+radios.forEach(function(i){i.onchange=function(){
+ document.getElementById('eqt').textContent=i.value;document.getElementById('eqb').textContent=i.value;
+ document.querySelectorAll('.eq label').forEach(function(l){l.classList.remove('on');var g=l.querySelector('.tag');if(g)g.remove()});
+ var l=i.closest('label');l.classList.add('on');l.insertAdjacentHTML('beforeend','<span class="tag">EQUIPPED</span>');
+ if(t){t.textContent='title equipped: '+i.value;t.classList.add('on');clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('on')},1800)}
+}});
+})();
