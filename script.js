@@ -31,7 +31,7 @@ document.querySelectorAll('.vn .bar button').forEach(function(b){b.onclick=funct
 
 (function(){
 var tabs=[].slice.call(document.querySelectorAll('.tabs [role=tab]')),title=document.querySelector('#about .tb .t');
-function sel(t){tabs.forEach(function(b){var on=b===t;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;var p=document.getElementById(b.getAttribute('aria-controls'));p.classList.toggle('off',!on);p.setAttribute('aria-hidden',!on)});if(title)title.textContent=t.id==='tab-burrow'?'♥ hoppr.exe — welcome_to_the_burrow.txt':'♥ hoppr.exe'}
+function sel(t){tabs.forEach(function(b){var on=b===t;b.setAttribute('aria-selected',on);b.tabIndex=on?0:-1;var p=document.getElementById(b.getAttribute('aria-controls'));p.classList.toggle('off',!on);p.setAttribute('aria-hidden',!on)});if(title)title.textContent='♥ hoppr.exe — '+({'tab-about':'about_the_rabbit.txt','tab-burrow':'welcome_to_the_burrow.txt','tab-stats':'stats.txt'}[t.id]||'')}
 tabs.forEach(function(b,i){b.onclick=function(){sel(b)};b.onkeydown=function(e){var n=null;if(e.key==='ArrowRight'||e.key==='ArrowDown')n=tabs[(i+1)%tabs.length];if(e.key==='ArrowLeft'||e.key==='ArrowUp')n=tabs[(i+tabs.length-1)%tabs.length];if(n){e.preventDefault();sel(n);n.focus()}}});
 var fw=document.getElementById('fw'),op=document.getElementById('fwopen'),dni=document.getElementById('fw-dni'),rules=document.getElementById('fw-rules'),back=null;
 var front=null,zc=5;
