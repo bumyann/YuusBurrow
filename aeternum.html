@@ -211,11 +211,12 @@ var N={
  aet:{type:'aeternum',name:'The Aeternum',kids:['cel','u2','u3']},
  cel:{type:'universe',name:'Celestalis',parent:'aet',kids:['ne','w2','w3']},
  u2:{type:'universe',name:'???',parent:'aet',locked:1},u3:{type:'universe',name:'???',parent:'aet',locked:1},
- ne:{type:'world',name:'New Earth',parent:'cel',sprite:'earth',kids:['au','ik','p3']},
+ ne:{type:'world',name:'New Earth',parent:'cel',sprite:'earth',kids:['au','ik','rb','p3']},
  w2:{type:'world',name:'???',parent:'cel',locked:1},w3:{type:'world',name:'???',parent:'cel',locked:1},
- au:{type:'place',name:'Aurelon Institute',parent:'ne',geo:[10,48],kids:['c1','c2','c3']},
+ au:{type:'place',name:'Aurelon Institute',parent:'ne',geo:[-71,43],kids:['c1','c2','c3']},
  ik:{type:'place',name:'Ikkyou Clan',parent:'ne',geo:[138,37],kids:['c4','c5']},
- p3:{type:'place',name:'???',parent:'ne',geo:[-98,40],locked:1},
+ rb:{type:'place',name:'Runebloom Academy',parent:'ne',geo:[-0.5,51.5],kids:[]},
+ p3:{type:'place',name:'???',parent:'ne',geo:[135,-25],locked:1},
  rules:{type:'page',name:'Network Guidelines',parent:'aet'},faye:{type:'page',name:'F.A.Y.E.',parent:'aet'},
  c1:{type:'character',name:'Sample Character A',parent:'au'},c2:{type:'character',name:'Sample Character B',parent:'au'},c3:{type:'character',name:'Sample Character C',parent:'au'},
  c4:{type:'character',name:'Sample Character D',parent:'ik'},c5:{type:'character',name:'Sample Character E',parent:'ik'}
@@ -248,8 +249,8 @@ function worldView(id){var k=N[id].kids,h='';
 function fitMap(){var w=$('mw'),b=$('mb');if(!w||!b)return;var r=MM.W/MM.H,ww=w.clientWidth,wh=w.clientHeight,bw=Math.min(ww,wh*r);b.style.width=bw+'px';b.style.height=(bw/r)+'px'}
 window.addEventListener('resize',fitMap);
 function pageView(id){var n=N[id],h='<div class="page"><span class="tag">'+TY[n.type]+'</span><h2>'+esc(n.name)+'</h2>';
- if(n.type==='place'){h+='<p class="ph">[place overview goes here]</p><h3>Characters</h3><div class="grid">';
-  n.kids.forEach(function(c){h+='<button type="button" class="cc" data-go="'+c+'"><div class="po">[portrait]</div><div class="nm">'+esc(N[c].name)+'</div><div class="tg2">[faction] · [POV]</div></button>'});h+='</div>'}
+ if(n.type==='place'){h+='<p class="ph">[place overview goes here]</p><h3>Characters</h3>'+((n.kids||[]).length?'':'<p class="ph">[characters go here]</p>')+'<div class="grid">';
+  (n.kids||[]).forEach(function(c){h+='<button type="button" class="cc" data-go="'+c+'"><div class="po">[portrait]</div><div class="nm">'+esc(N[c].name)+'</div><div class="tg2">[faction] · [POV]</div></button>'});h+='</div>'}
  else{h+='<div class="prof"><div class="po">[card image]</div><div><h3 style="margin-top:0">Faction</h3><p class="ph">[faction]</p><h3>POV</h3><p class="ph">[MalePOV / AnyPOV]</p><h3>Greetings</h3><ul class="gl"><li>[greeting 1]</li><li>[greeting 2]</li></ul></div></div>'}
  return h+'</div>'}
 function render(){var n=N[cur],v=$('view'),cr=path(cur),c='';
