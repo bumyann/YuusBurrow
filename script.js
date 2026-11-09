@@ -130,3 +130,12 @@ draw();
 fetch('posts/index.json?v=1').then(function(r){return r.ok?r.json():[]}).then(function(a){if(Array.isArray(a)){P=a.filter(function(p){return p&&p.id&&p.title&&p.date}).sort(function(x,y){return x.date<y.date?1:-1});draw();fromHash()}}).catch(function(){});
 window.addEventListener('hashchange',fromHash);
 })();
+
+(function(){
+var g=document.querySelector('.qs-g');if(!g)return;
+var T=g.dataset.t,POOL='█▓▒░▌▐╳#@%&§¿?/\\|<>~^0123456789ΔΩΞ¤',rm=matchMedia('(prefers-reduced-motion: reduce)').matches,vis=true,tm=null;
+function scr(){var o='';for(var i=0;i<T.length;i++){var ch=T[i];o+=(ch===' '||Math.random()>.5)?ch:POOL.charAt(Math.floor(Math.random()*POOL.length))}g.textContent=o}
+scr();if(rm)return;
+if('IntersectionObserver' in window)new IntersectionObserver(function(es){vis=es[0].isIntersecting}).observe(g);
+tm=setInterval(function(){if(vis&&!document.hidden)scr()},110);
+})();
