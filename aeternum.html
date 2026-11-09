@@ -293,7 +293,7 @@ var N={
  c1:{type:'character',name:'Sample Character A',parent:'au'},c2:{type:'character',name:'Sample Character B',parent:'au'},c3:{type:'character',name:'Sample Character C',parent:'au'},
  c4:{type:'character',name:'Sample Character D',parent:'ik'},c5:{type:'character',name:'Sample Character E',parent:'ik'}
 };
-var CATS={aet:[['THE REALMS',['ae1','ae3','ae4','ae5','ae6']],['FRAGMENTS & BELIEF',['ae2','ae20']],['DIVINE BEINGS',['ae8','ae9','ae10','ae7']],['DEMONIC BEINGS',['ae11','ae12','ae19']],['MORTALS & SPECIES',['ae13','ae14','ae15','ae16','ae17','ae18']]],
+var CATS={aet:[['THE REALMS',['ae1','ae3','ae4','ae5','ae6']],['FRAGMENTS & BELIEF',['ae2','ae20','ae7']],['DIVINE BEINGS',['ae8','ae9','ae10']],['DEMONIC BEINGS',['ae11','ae12','ae19']],['MORTALS & SPECIES',['ae13','ae14','ae15','ae16','ae17','ae18']]],
  ne:[['HISTORY',['ne1','ne2','ne3','ne4']],['FAITH',['ne5','ne6','ne12']]]};
 var CATOF={};Object.keys(CATS).forEach(function(w){var all=[];CATS[w].forEach(function(c){c[1].forEach(function(a){CATOF[a]=c[0];all.push(a)})});N[w].arts=all});
 var TY={aeternum:'',universe:'UNI',world:'WORLD',place:'PLACE',character:'CHAR',page:'PAGE',org:'ORG',article:'ART',index:'INDEX'},CHILD={aeternum:'universe',universe:'world',world:'place',place:'character'};
@@ -331,7 +331,19 @@ function artCards(a){var h='',last=null,open_=false;a.forEach(function(x){var c=
 function artSection(id){var a=N[id].arts||[];return a.length?'<section class="wikisec"><h3>ARTICLES</h3>'+artCards(a)+'</section>':''}
 function legend(){return '<div class="legend" aria-label="Map legend"><span><b class="lp">'+PIN+'</b>PLACE</span><span><b class="lo">'+PINORG+'</b>ORGANIZATION</span><span><b class="lb2"><i></i></b>ORGANIZATION BRANCH</span><span><b class="ll2"></b>LOCKED</span></div>'}
 function mapCtl(){return '<div class="mapctl" role="group" aria-label="Map filter">'+[['all','ALL'],['place','PLACES'],['org','ORGANIZATIONS']].map(function(x){return '<button type="button" data-mf="'+x[0]+'" aria-pressed="'+(mapF===x[0])+'"'+(mapF===x[0]?' class="on"':'')+'>'+x[1]+'</button>'}).join('')+'</div>'}
-function fitMap(){var w=$('mw'),b=$('mb');if(!w||!b)return;var r=MM.W/MM.H,ww=w.clientWidth,wh=w.clientHeight,bw=Math.min(ww,wh*r);b.style.width=bw+'px';b.style.height=(bw/r)+'px'}
+function placeMarkers(){var b=$('mb');if(!b)return;var ms=[].slice.call(b.querySelectorAll('.bm')),pins=[].slice.call(b.querySelectorAll('.nd'));
+ ms.forEach(function(m){m.style.margin='0'});
+ function box(e,pad){var r=e.getBoundingClientRect();return r.width?{l:r.left-pad,r:r.right+pad,t:r.top-pad,b:r.bottom+pad}:null}
+ function hit(a,c){return a&&c&&!(a.r<=c.l||a.l>=c.r||a.b<=c.t||a.t>=c.b)}
+ var obst=[];pins.forEach(function(p){obst.push(box(p,4));var l=p.querySelector('.lb');if(l)obst.push(box(l,4))});obst=obst.filter(Boolean);var placed=[],bb=b.getBoundingClientRect();
+ var ang=[-90,-45,0,45,90,135,180,225,-135,-20,20,160,200,-70,70,110,250];
+ ms.forEach(function(m){if(!m.offsetWidth){return}var r0=m.getBoundingClientRect(),cx=r0.left+r0.width/2,cy=r0.top+r0.height/2,w=r0.width,h=r0.height,best=null;
+  function at(dx,dy){return {l:cx+dx-w/2-3,r:cx+dx+w/2+3,t:cy+dy-h/2-3,b:cy+dy+h/2+3}}
+  function free(bx){if(bx.l<bb.left||bx.r>bb.right||bx.t<bb.top||bx.b>bb.bottom)return false;for(var i=0;i<obst.length;i++)if(hit(bx,obst[i]))return false;for(var j=0;j<placed.length;j++)if(hit(bx,placed[j]))return false;return true}
+  if(free(at(0,0)))best=[0,0];
+  for(var rad=24;!best&&rad<=150;rad+=14){for(var k=0;k<ang.length;k++){var a=ang[k]*Math.PI/180,dx=Math.round(Math.cos(a)*rad),dy=Math.round(Math.sin(a)*rad);if(free(at(dx,dy))){best=[dx,dy];break}}}
+  best=best||[0,0];m.style.margin=best[1]+'px 0 0 '+best[0]+'px';placed.push(at(best[0],best[1]))})}
+function fitMap(){var w=$('mw'),b=$('mb');if(!w||!b)return;var r=MM.W/MM.H,ww=w.clientWidth,wh=w.clientHeight,bw=Math.min(ww,wh*r);b.style.width=bw+'px';b.style.height=(bw/r)+'px';placeMarkers()}
 window.addEventListener('resize',fitMap);
 function pageView(id){var n=N[id],h='<div class="page'+(n.type==='article'?' wide':'')+'"><span class="tag">'+TY[n.type]+'</span><h2>'+esc(n.name)+'</h2>';
  if(n.type==='article'){h+='<p class="from">FROM <button type="button" class="lnk" data-go="'+n.parent+'">'+esc(N[n.parent].name)+'</button></p><div class="art-body">'+((CONTENT.art||{})[id]||'<p class="ph">[article goes here]</p>')+'</div>';return h+'</div>'}
