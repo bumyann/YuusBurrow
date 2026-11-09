@@ -293,3 +293,6 @@ fieldset.eq{border:0;margin:0 0 10px;padding:0;min-width:0;display:flex;flex-wra
 
 .topbar a.lo{text-decoration:none;display:inline-block}
 .logo{word-break:break-word}
+
+.ad .pic{position:relative;padding:0;display:block;overflow:visible}
+.ad .pic img{display:block;width:100%;height:100%;object-fit:cover}
